@@ -6,8 +6,6 @@ require("babel/polyfill")
 // code line # to source code line #), in realtime via websockets
 if (module.hot) module.hot.accept()
 
-let fetch = require('./fetcher')
-
 import {React, Component, DOM} from 'react-resolver'
 
 // other stuff that we don't really use in our own code
