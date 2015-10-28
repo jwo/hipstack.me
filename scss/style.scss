@@ -1,6 +1,5 @@
-
-@import "../bower_components/normalize-css/normalize.scss";
-@import "../bower_components/typeplate-starter-kit/scss/typeplate";
+@import "../bower_components/normalize-css/normalize.css";
+@import "../bower_components/typeplate-starter-kit/css/typeplate.css";
 
 /**
  * BOX-SIZING
@@ -21,31 +20,39 @@
  */
 
 .grid {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: stretch;
-    flex-wrap: wrap;
+    display: block;
+    text-align: justify;
+    font-size: 0;
+    position: relative;
+
     > * {
-        flex: 1;
-        flex-basis: 100%;
+        display: inline-block;
+        width: 100%;
+        font-size: normal;
+    }
+
+    &:after {
+        display: table;
+        width: 100%;
     }
 }
 
-@mixin grid_r($col, $width) {
-    @media only screen and (min-width: #{$width}px) {
-        .grid-#{$col}-#{$width} {
+@mixin grid_r($col, $width, $padding: 0) {
+    @media only screen and (min-width: $(width)px) {
+        .grid-$(col)-$(width) {
             & > * {
-                flex-basis: #{100/$col}%;
+                width: calc(100/$col)%;
+                padding: $(padding)px;
             }
         }
     }
 }
 
-@mixin grid($col) {
-    .grid-#{$col} {
+@mixin grid($col, $padding: 0) {
+    .grid-$(col) {
         & > * {
-            flex-basis: #{100/$col}%;
+            width: calc(100/$col)%;
+            padding: $(padding)px;
         }
     }
 }
@@ -67,6 +74,9 @@
 img {
     max-width: 100%;
 }
+/**
+ * YOUR CODE HERE
+ */
 
 /**
  * PACE (automatic pre-loader thingy)
@@ -97,6 +107,14 @@ img {
 }
 
 /**
- * YOUR CODE HERE
+ * GENERAL
+ */
+
+img {
+    max-width: 100%;
+}
+
+/**
+ * General styles
  */
 
