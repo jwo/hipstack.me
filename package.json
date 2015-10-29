@@ -25,7 +25,7 @@
     "start": "npm run n heroku-server.js",
     "s": "npm run start & npm run watch",
     "n": "node  --use_strict --harmony --es_staging",
-    "bower": "bower install normalize-css typeplate-starter-kit pace; cp ./bower_components/normalize-css/normalize.css ./bower_components/normalize-css/normalize.scss; echo 'bower dependencies installed';",
+    "bower": "bower install normalize-css typeplate-starter-kit pace; echo 'bower dependencies installed';",
     "postinstall": "npm run bower && npm run build-resolver && npm run build",
     "docs": "esdoc -c esdoc.json",
     "check": "requiresafe check; echo 'check completed';",
