@@ -1,6 +1,4 @@
-require('babel/register')({
-    stage: 0
-})
+require('babel-core/register')
 
 // cluster management and load-balancing with nanny
 // ----

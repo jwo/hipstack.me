@@ -71,10 +71,12 @@ This is a scaffolding project that includes boilerplate code for:
 
 #### Changelog
 
+- Oct 30, 2015
+    - upgraded babel to @^6.0.12, including adopting the new ecosystem of tools, plugins, parsers, and transformers
+    - added `npm-run-all` to build system, which cleans up any asynchronous scripts and logging running on parallel and sequential background and foreground scripts
 - Oct 28, 2015
     - reverting to postcss, because node-sass takes forever to install when it works, and fails to install on weak connections (npm downloads a huge binary)
     - in lieue of node-sass, the only thing that doesn't work exactly like Sass is interpolation
-    -
 - Oct 27, 2015
     - added `surge.sh` push/deployment scripts, and split up the express server code, so that heroku-server now uses the `nanny` module to scale out and monitor the health of a load-balanced cluster
     - added [`hmr-browserify`](https://github.com/substack/browserify-handbook#browserify-hmr) support, which allows live code changes of only a single file (not the entire app-browserify) to be pushed to the browser as the developers makes edits
