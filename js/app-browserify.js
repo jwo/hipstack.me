@@ -4,6 +4,9 @@ require("babel-polyfill")
 // fetch method, returns es6 promises
 require("isomorphic-fetch")
 
+// universal utils: cache, fetch, store, resource, fetcher, router
+// import {cache, fetch, store, resource, router} from 'universal-utils'
+
 // the following line, if uncommented, will enable browserify to push
 // a changed file to you, with source maps (reverse map from compiled
 // code line # to source code line #), in realtime via websockets
@@ -24,7 +27,7 @@ window.addEventListener('load', app)
 function app() {
     // start app
     // new Router()
-    // DOM.render(<p>test</p>, document.querySelector('.container'))
+    DOM.render(<p>test</p>, document.querySelector('.container'))
 }
 
 app()
