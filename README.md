@@ -35,7 +35,7 @@ This is a scaffolding project that includes boilerplate code for:
 3. Start your server:
 
     ```sh
-    npm run s
+    npm start
 
     # Alternatively, if you need nodemon to auto-reload your server
     # (when doing server-side work)
@@ -69,8 +69,20 @@ This is a scaffolding project that includes boilerplate code for:
 
     > Note: you can teardown a surge.sh URL with `npm run teardown`, which will prompt you for the URL to bring down
 
+7. Want to generate your own documentation with [esdocs](https://github.com/esdoc/esdoc)?
+
+    ```sh
+    npm run
+    ```
+
 #### Changelog
 
+- Nov 1, 2015
+    - new babel tooling, but reverted babe; back to 5.8.x because 6.x is not es7 friendly
+    - new babelify, new browserify, new node engine (node v5!!! run `npm upgrade:brew`)
+    - new documentation and gh-pages workflow
+    - simplified installation time/process, especially with node v5 (auto `dedupe` feature in node v5, or in older version do `npm run dedupe`)
+    - modified the server-side architecture to use the babel require-hook (`require('babel/register')`) only for app code, and to share a backing server incluide to save memory usage
 - Oct 30, 2015
     - upgraded babel to @^6.0.12, including adopting the new ecosystem of tools, plugins, parsers, and transformers
     - added `npm-run-all` to build system, which cleans up any asynchronous scripts and logging running on parallel and sequential background and foreground scripts
