@@ -1,4 +1,4 @@
-require('babel-core/register')
+require('babel/register')
 
 var app = require('./express-instance'),
     http = require('http')

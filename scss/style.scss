@@ -1,5 +1,5 @@
-@import "../bower_components/normalize-css/normalize.css";
-@import "../bower_components/typeplate-starter-kit/css/typeplate.css";
+@import "../bower_components/normalize-scss/_normalize.scss";
+@import "../bower_components/typeplate-starter-kit/scss/_typeplate.scss";
 
 /**
  * BOX-SIZING
@@ -38,21 +38,21 @@
 }
 
 @mixin grid_r($col, $width, $padding: 0) {
-    @media only screen and (min-width: $(width)px) {
-        .grid-$(col)-$(width) {
+    @media only screen and (min-width: #{$width}px) {
+        .grid-#{col}-#{width} {
             & > * {
-                width: calc(100/$col)%;
-                padding: $(padding)px;
+                width: #{100/$col}%;
+                padding: #{$padding}px;
             }
         }
     }
 }
 
 @mixin grid($col, $padding: 0) {
-    .grid-$(col) {
+    .grid-#{col} {
         & > * {
-            width: calc(100/$col)%;
-            padding: $(padding)px;
+            width: #{100/$col}%;
+            padding: #{$padding}px;
         }
     }
 }

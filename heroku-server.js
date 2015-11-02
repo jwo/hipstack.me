@@ -1,5 +1,3 @@
-require('babel-core/register')
-
 // cluster management and load-balancing with nanny
 // ----
 // maintains a pool of workers,
