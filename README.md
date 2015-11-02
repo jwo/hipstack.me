@@ -72,7 +72,7 @@ This is a scaffolding project that includes boilerplate code for:
 7. Want to generate your own documentation with [esdocs](https://github.com/esdoc/esdoc)?
 
     ```sh
-    npm run
+    npm run docs:publish
     ```
 
 #### Changelog
