@@ -62,7 +62,7 @@
     "teardown": "surge list; echo 'type a domain from above: \n ------------ \n\n '; surge teardown",
     "dedupe": "npm dedupe",
     "deps": "browserify --list; browserify --deps;",
-    "squash": "git reset $npm_package_config_squash_reset; git add .; git commit --message=$npm_package_config_squash_msg; git push origin HEAD --force;",
+    "squash": "git reset $npm_package_config_squash_reset; git add .; git commit -am $npm_package_config_squash_msg; git push origin HEAD --force;",
     "squash:reset": "npm run squash --squash_reset:universal-js-boilerplate=--"
   },
   "dependencies": {
