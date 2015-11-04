@@ -27,7 +27,7 @@
     "loose": "all"
   },
   "engines": {
-    "node": ">=5.0.0"
+    "node": ">=5.0.0 <6"
   },
   "//": [
     "https://docs.npmjs.com/misc/scripts <-- more about npm scripts"
@@ -63,7 +63,8 @@
     "dedupe": "npm dedupe",
     "deps": "browserify --list; browserify --deps;",
     "squash": "git reset $npm_package_config_squash_reset; git add .; git commit -am $npm_package_config_squash_msg; git push origin HEAD --force;",
-    "squash:reset": "npm run squash --squash_reset:universal-js-boilerplate=--"
+    "squash:reset": "npm run squash --squash_reset:universal-js-boilerplate=--",
+    "amend": "git commit --amend -m --"
   },
   "dependencies": {
     "autoprefixer": "^6.0.3",
