@@ -4,6 +4,7 @@
   "description": "This is a Node/Browserify/Babel/Backbone/React/etc boilerplate. To be used as an initial scaffolding tool.",
   "author": "Matthew Keas <matthiasak@gmail.com>",
   "license": "MIT",
+  "main": "./heroku-server.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/matthiasak/universal-js-boilerplate.git"
@@ -28,6 +29,13 @@
   "engines": {
     "node": ">=5.0.0"
   },
+  "//": [
+    "https://docs.npmjs.com/misc/scripts <-- more about npm scripts"
+  ],
+  "config": {
+    "squash_reset": "HEAD~1",
+    "squash_msg": "'squashing commits down to 1 commit'"
+    },
   "scripts": {
     "build:css": "node-sass scss/style.scss | postcss --use autoprefixer --use csswring -o ./dist/style.css",
     "build:js": "browserify -e ./js/app-browserify.js > ./dist/app-browserify.js",
@@ -53,7 +61,9 @@
     "surge": "surge dist",
     "teardown": "surge list; echo 'type a domain from above: \n ------------ \n\n '; surge teardown",
     "dedupe": "npm dedupe",
-    "deps": "browserify --list; browserify --deps;"
+    "deps": "browserify --list; browserify --deps;",
+    "squash": "git reset $npm_package_config_squash_reset; git add .; git commit --message=$npm_package_config_squash_msg; git push origin HEAD --force;",
+    "squash:reset": "npm run squash --squash_reset:universal-js-boilerplate=--"
   },
   "dependencies": {
     "autoprefixer": "^6.0.3",
