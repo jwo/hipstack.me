@@ -14,7 +14,6 @@ require("isomorphic-fetch")
 if (module.hot) {
     module.hot.accept()
     module.hot.dispose(() => {
-        page.stop()
         app()
     })
 }

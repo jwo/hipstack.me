@@ -39,7 +39,7 @@ This is a scaffolding project that includes boilerplate code for:
 
     # Alternatively, if you need nodemon to auto-reload your server
     # (when doing server-side work)
-    # npm run server
+    # npm run nodemon
     ```
 
 4. Ready to push your code to heroku?
@@ -53,16 +53,13 @@ This is a scaffolding project that includes boilerplate code for:
 5. Or are you pushing to gh-pages instead?
 
     ```sh
-    git commit -am "committing recent changes, so they can be sent to GitHub"
-    npm run gh-pages
+    npm run publish:gh-pages
     ```
 
 6. Or are you using [surge.sh](http://surge.sh)?
 
     ```sh
-    git commit -am "committing recent changes, for sanity"
-    npm run build
-    npm run surge
+    npm run publish:surge
     # you may be prompted to login or signup,
     # and then you'll be asked what URL to push to on surge.sh
     ```
@@ -72,11 +69,20 @@ This is a scaffolding project that includes boilerplate code for:
 7. Want to generate your own documentation with [esdocs](https://github.com/esdoc/esdoc)?
 
     ```sh
-    npm run docs:publish
+    # build docs and open locally
+    npm run docs
+    open dist/esdoc/index.html
+    # or build AND publish to gh-pages or to surge
+    npm run docs:gh-pages
+    npm run docs:surge
     ```
 
 #### Changelog
 
+- Nov 6, 2015
+    - upgrading various scripts, check dosc and package.json for details
+    - adding a config.json for configuration, and equivalent checks on heroku-server.js
+    - added proper hot module code that reruns the app in app-browserify.js
 - Nov 1, 2015
     - new babel tooling, but reverted babe; back to 5.8.x because 6.x is not es7 friendly
     - new babelify, new browserify, new node engine (node v5!!! run `npm upgrade:brew`)
