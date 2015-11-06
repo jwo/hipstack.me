@@ -83,6 +83,7 @@ This is a scaffolding project that includes boilerplate code for:
     - upgrading various scripts, check dosc and package.json for details
     - adding a config.json for configuration, and equivalent checks on heroku-server.js
     - added proper hot module code that reruns the app in app-browserify.js
+    - new example tests, and adding ava as build system instead of mocha
 - Nov 1, 2015
     - new babel tooling, but reverted babe; back to 5.8.x because 6.x is not es7 friendly
     - new babelify, new browserify, new node engine (node v5!!! run `npm upgrade:brew`)
