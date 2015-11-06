@@ -5,7 +5,7 @@
         "name": "esdoc-es7-plugin"
     }],
     "test": {
-        "type": "mocha",
+        "type": "ava",
         "source": "./js/test/"
     }
 }
