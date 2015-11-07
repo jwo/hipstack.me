@@ -1,5 +1,5 @@
 // es5 and 6 polyfills, powered by babel
-require("babel/polyfill")
+require("babel-polyfill")
 
 // fetch method, returns es6 promises
 // if you uncomment 'universal-utils' below, you can comment out this line
@@ -24,9 +24,6 @@ import React, {Component} from 'react'
 
 // other stuff that we don't really use in our own code
 var Pace = require("../bower_components/PACE/pace.js")
-
-// require your own libraries, too!
-// var Router = require('./app.js')
 
 function app() {
     // start app

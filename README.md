@@ -2,6 +2,8 @@
 
 ---
 
+> **WARNING** This version of Universal JS Boilerplate uses Babel v6, which is **UNDER ACTIVE DEVELOPMENT**. The plugin system currently has a lot of issues, and the Babel v6 presets for ES2015/ES7 features are having a few difficulties as of Nov 6th, 2015. Noted among the currently non-working features are static and non-static class properties, decorators, and the destructuring of complex objects in function arguments.
+
 This is a scaffolding project that includes boilerplate code for:
 
 - Node
