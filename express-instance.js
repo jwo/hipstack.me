@@ -3,13 +3,16 @@ var express = require('express'),
     request = require('request'),
     compression = require('compression'),
     session = require('express-session'),
+    bodyParser = require('body-parser'),
     csrf = require('csurf'),
     override = require('method-override')
 
 // all environments
 app.set('port', process.argv[3] || process.env.PORT || 3000)
 app.disable('x-powered-by')
-app.use(/(.*).(css|js)/, compression())
+app.use(bodyParser.urlencoded({ extended: false })) // for parsing application/x-www-form-urlencoded
+app.use(bodyParser.json()) // for parsing application/json
+app.get(/(.*).(css|js|jpg|jpeg|gif|png)/, compression())
 app.use(express.static(__dirname+'/dist'))
 app.use(express.static(__dirname+'/bower_components'))
 
