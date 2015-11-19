@@ -20,10 +20,11 @@
     ],
     "babel": {
         "presets": [
-            "stage-0",
             "es2015",
+            "stage-0",
             "react"
-        ]
+        ],
+        "ignore": "node_modules"
     },
     "engines": {
         "node": ">=5.0.0 <6"
@@ -40,11 +41,11 @@
         "watch:js": "watchify ./js/app-browserify.js -p browserify-hmr -v --delay 16 -o 'exorcist ./dist/app-browserify.js.map > ./dist/app-browserify.js' -d --",
         "watch": "[ \"$NODE_ENV\" != production ] && npm-run-all --parallel watch:*; echo 'watching started, if not in production';",
         "test": "ava js/test/main.js",
-        "nodemon_task": "nodemon --watch . --ext js,jsx -ignore dist heroku-server.js",
+        "nodemon_task": "nodemon --watch . --ext js,jsx --ignore dist heroku-server.js",
         "nodemon": "npm-run-all --parallel nodemon_task watch",
         "server": "forever heroku-server.js",
         "start": "npm-run-all --parallel server build watch",
-        "bower": "bower install normalize-scss foundation typeplate-starter-kit pace; echo 'bower dependencies installed';",
+        "bower": "bower install normalize-scss typeplate-starter-kit; echo 'bower dependencies installed';",
         "postinstall": "npm-run-all bower production-setup",
         "production-setup": "[ \"$NODE_ENV\" == production ] && npm-run-all build; echo 'built for deployment';",
         "docs": "esdoc -c esdoc.json",
@@ -65,12 +66,12 @@
     },
     "dependencies": {
         "autoprefixer": "^6.0.3",
-        "babel-cli": "^6.1.2",
-        "babel-core": "^6.1.2",
-        "babel-polyfill": "^6.0.16",
-        "babel-preset-es2015": "^6.1.2",
-        "babel-preset-react": "^6.1.2",
-        "babel-preset-stage-0": "^6.1.2",
+        "babel-cli": "^6.2.0",
+        "babel-core": "^6.2.0",
+        "babel-polyfill": "^6.2.0",
+        "babel-preset-es2015": "^6.1.18",
+        "babel-preset-react": "^6.1.18",
+        "babel-preset-stage-0": "^6.1.18",
         "babelify": "^7.2.0",
         "backbone": "^1.2.1",
         "body-parser": "^1.14.1",
@@ -88,7 +89,9 @@
         "lodash": "^3.10.1",
         "method-override": "^2.3.3",
         "mithril-resolver": "^0.0.11",
+        "mithril-node-render": "^0.3.3",
         "nanny": "^1.0.1",
+        "nlp_compromise": "^1.1.4",
         "node-sass": "^3.4.1",
         "npm-run-all": "^1.2.12",
         "postcss-cli": "^2.1.0",
@@ -97,7 +100,7 @@
         "react-resolver": "https://github.com/matthiasak/react-resolver.git",
         "request": "^2.55.0",
         "sane": "^1.3.0",
-        "universal-utils": "^0.0.43"
+        "universal-utils": "^0.1.9"
     },
     "devDependencies": {
         "ava": "^0.3.0",

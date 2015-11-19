@@ -1,4 +1,4 @@
-// es5 and 6 polyfills, powered by babel
+// es5, 6, and 7 polyfills, powered by babel
 require("babel-polyfill")
 
 // fetch method, returns es6 promises
@@ -21,9 +21,6 @@ if (module.hot) {
 // import {React, Component, DOM, Resolver, resolve} from 'react-resolver'
 import DOM from 'react-dom'
 import React, {Component} from 'react'
-
-// other stuff that we don't really use in our own code
-var Pace = require("../bower_components/PACE/pace.js")
 
 function app() {
     // start app
