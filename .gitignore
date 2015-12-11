@@ -9,8 +9,8 @@ coverage
 .lock-wscript
 build/Release
 node_modules
-dist
-!dist/index.html
-!dist/fonts
-!dist/images
+dist/app-browserify.js
+dist/app-browserify.js.map
+dist/style.css
 bower_components
+.otto/

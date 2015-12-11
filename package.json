@@ -4,7 +4,7 @@
   "description": "This is a Node/Browserify/Babel/Backbone/React/etc boilerplate. To be used as an initial scaffolding tool.",
   "author": "Matthew Keas <matthiasak@gmail.com>",
   "license": "MIT",
-  "main": "heroku-server.js",
+  "main": "app.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/matthiasak/universal-js-boilerplate.git"
@@ -27,7 +27,7 @@
     "ignore": "node_modules"
   },
   "engines": {
-    "node": ">=5.0.0 <6"
+    "node": ">=5.2.0 <6"
   },
   "config": {
     "squash_reset": "HEAD~1",
@@ -41,13 +41,13 @@
     "watch:js": "watchify ./js/app-browserify.js -p browserify-hmr -v --delay 16 -o 'exorcist ./dist/app-browserify.js.map > ./dist/app-browserify.js' -d --",
     "watch": "[ \"$NODE_ENV\" != production ] && npm-run-all --parallel watch:*; echo 'watching started, if not in production';",
     "test": "ava js/test/main.js",
-    "nodemon_task": "nodemon --watch . --ext js,jsx --ignore dist heroku-server.js",
+    "nodemon_task": "nodemon --watch . --ext js,jsx --ignore dist app.js",
     "nodemon": "npm-run-all --parallel nodemon_task watch",
-    "server": "forever heroku-server.js",
+    "server": "forever app.js",
     "start": "npm-run-all --parallel server build watch",
-    "bower": "bower install normalize-scss typeplate-starter-kit; echo 'bower dependencies installed';",
+    "bower": "bower install normalize-scss typeplate-starter-kit pace; echo 'bower dependencies installed';",
     "postinstall": "npm-run-all bower production-setup",
-    "production-setup": "[ \"$NODE_ENV\" == production ] && npm-run-all build; echo 'built for deployment';",
+    "production-setup": "npm-run-all build; echo 'built for deployment';",
     "docs": "esdoc -c esdoc.json",
     "docs:surge": "npm-run-all docs; surge dist/esdoc;",
     "docs:gh-pages": "git add --all . && git commit -am 'cleaning up any staged and uncomitted changes'; git checkout master; npm-run-all docs; git subtree split --prefix dist -b gh-pages && git checkout gh-pages && cp -rf ./dist/esdoc/* . && git add ast class css file identifiers.html index.html script variable badge.svg coverage.json dump.json function image package.json source.html && git commit -am 'cleaning and pushing' && git push origin gh-pages:gh-pages --force; git checkout master; git branch -Dq gh-pages; echo 'done';",
@@ -62,7 +62,11 @@
     "squash": "git reset $npm_package_config_squash_reset; git add .; git commit -am $npm_package_config_squash_msg; git push origin HEAD --force;",
     "squash:reset": "npm run squash --squash_reset:universal-js-boilerplate=--",
     "amend": "git commit --amend -m --",
-    "logs:heroku": "heroku logs --tail"
+    "logs:heroku": "heroku logs --tail",
+    "otto:setup": "npm i; otto compile; otto dev; git add --all .; otto dev ssh; echo '--- now follow any error messages when running to fix any binaries while inside the VM (i.e. _npm rebuild node-sass_ may be suggested by  the prompt when you attempt to _npm start_)';",
+    "otto:deploy": "otto build; otto infra; otto deploy;",
+    "otto:teardown": "otto deploy destroy; otto infra destroy; otto dev destroy;",
+    "otto:open": "open `otto dev address`"
   },
   "dependencies": {
     "autoprefixer": "^6.0.3",
@@ -88,8 +92,6 @@
     "jquery": "^2.1.4",
     "lodash": "^3.10.1",
     "method-override": "^2.3.3",
-    "mithril-resolver": "^0.0.11",
-    "mithril-node-render": "^0.3.3",
     "nanny": "^1.0.1",
     "nlp_compromise": "^1.1.4",
     "node-sass": "^3.4.1",
@@ -100,7 +102,8 @@
     "react-resolver": "https://github.com/matthiasak/react-resolver.git",
     "request": "^2.55.0",
     "sane": "^1.3.0",
-    "universal-utils": "^0.1.9"
+    "seamless-immutable": "^4.0.2",
+    "universal-utils": "^0.1.17"
   },
   "devDependencies": {
     "ava": "^0.3.0",
