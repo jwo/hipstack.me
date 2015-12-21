@@ -10,11 +10,15 @@ var express = require('express'),
 // all environments
 app.set('port', process.argv[3] || process.env.PORT || 3000)
 app.disable('x-powered-by')
-app.use(bodyParser.urlencoded({ extended: false })) // for parsing application/x-www-form-urlencoded
-app.use(bodyParser.json()) // for parsing application/json
-app.get(/(.*).(css|js|jpg|jpeg|gif|png)/, compression())
-app.use(express.static(__dirname+'/dist'))
-app.use(express.static(__dirname+'/bower_components'))
+app.use(
+    bodyParser.urlencoded({ extended: false }), // for parsing application/x-www-form-urlencoded
+    bodyParser.json(), // for parsing application/json
+    compression({
+        filter: (req,res) => true,
+        level: 9
+    }),
+    express.static(__dirname+'/dist', {maxAge: 1000*60*60*12})
+)
 
 // { test: 'name', test2: 'name2' } --> '?test=name&test2=name2'
 const querify = (queryParamsObject) => {

@@ -5,8 +5,8 @@ require("babel-polyfill")
 // if you uncomment 'universal-utils' below, you can comment out this line
 require("isomorphic-fetch")
 
-// universal utils: cache, fetch, store, resource, fetcher, router
-// import {cache, fetch, store, resource, router} from 'universal-utils'
+// universal utils: cache, fetch, store, resource, fetcher, router, vdom, etc
+import * as u from 'universal-utils'
 
 // the following line, if uncommented, will enable browserify to push
 // a changed file to you, with source maps (reverse map from compiled

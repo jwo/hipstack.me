@@ -3,5 +3,6 @@
     "apis": {
 
     },
-    "nodeCluster": false
+    "nodeCluster": false,
+    "appName": "fillmein.com"
 }
