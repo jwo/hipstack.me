@@ -46,11 +46,6 @@
     "squash": "git reset $npm_package_config_squash_reset; git add .; git commit -am $npm_package_config_squash_msg; git push origin HEAD --force;",
     "squash:reset": "npm run squash --squash_reset:universal-js-boilerplate=--",
     "amend": "git commit --amend -m --",
-    "logs:heroku": "heroku logs --tail",
-    "otto:setup": "npm i; otto compile; otto dev; git add --all .; otto dev ssh; echo '--- now follow any error messages when running to fix any binaries while inside the VM (i.e. _npm rebuild node-sass_ may be suggested by  the prompt when you attempt to _npm start_)';",
-    "otto:deploy": "otto build; otto infra; otto deploy;",
-    "otto:teardown": "otto deploy destroy; otto infra destroy; otto dev destroy;",
-    "otto:open": "open `otto dev address`"
   },
   "dependencies": {
     "autoprefixer": "^6.0.3",
