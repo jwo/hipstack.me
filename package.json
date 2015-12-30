@@ -1,15 +1,21 @@
 {
   "name": "universal-js-boilerplate",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "This is a Node/Browserify/Babel/Backbone/React/etc boilerplate. To be used as an initial scaffolding tool.",
   "author": "Matthew Keas (@matthiasak)",
   "license": "MIT",
   "main": "app.js",
   "browserify": {
-    "transforms": [ "envify" ]
+    "transforms": [
+      "envify"
+    ]
   },
   "babel": {
-    "presets": [ "es2015", "stage-0", "react" ],
+    "presets": [
+      "es2015",
+      "stage-0",
+      "react"
+    ],
     "ignore": "node_modules"
   },
   "engines": {
