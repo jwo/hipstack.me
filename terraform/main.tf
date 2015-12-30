@@ -7,10 +7,13 @@ resource "aws_instance" "app" {
     }
 
     inline = [
+        "cd /srv/otto-app",
+        "sudo run npm build",
+        "cd ..",
         "sudo service nginx stop",
         "rm -rf letsencrypt",
         "git clone https://github.com/letsencrypt/letsencrypt",
-        "sudo ./letsencrypt/letsencrypt-auto certonly --text --domain destination.codes --agree-tos --keep-until-expiring --renew-by-default --email matthiasak@gmail.com &",
+        "sudo ./letsencrypt/letsencrypt-auto certonly --text --domain rentvillas.com --agree-tos --keep-until-expiring --renew-by-default --email matthiasak@gmail.com &",
         "while ! pidof nginx >> /dev/null; do sleep 2; done;",
         "sudo kill $(cat /run/nginx.pid)",
         "wait",
