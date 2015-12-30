@@ -20,8 +20,6 @@ app.use(
     express.static(__dirname+'/../dist', {maxAge: 1000*60*60*12})
 )
 
-console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++', __dirname+'/../dist')
-
 // { test: 'name', test2: 'name2' } --> '?test=name&test2=name2'
 const querify = (queryParamsObject) => {
     var params = Object.keys(queryParamsObject).map(function(val, key) {
