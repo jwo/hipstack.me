@@ -1,6 +1,7 @@
 // es5, 6, and 7 polyfills, powered by babel
 require("babel-polyfill")
 
+//
 // fetch method, returns es6 promises
 // if you uncomment 'universal-utils' below, you can comment out this line
 require("isomorphic-fetch")
@@ -25,7 +26,7 @@ import React, {Component} from 'react'
 function app() {
     // start app
     // new Router()
-    DOM.render(<p>test</p>, document.querySelector('.container'))
+    DOM.render(<p>test 2</p>, document.querySelector('.container'))
 }
 
 app()

@@ -1,11 +1,8 @@
-require('babel-core/register')
-
 var app = require('./express-instance'),
-    app2 = require('express')(),
     http = require('http'),
     // http2 = require('http2')
     https = require('https'),
-    config = require('./config.json'),
+    config = require('../config.json'),
     appName = config.appName || '',
     root = config.sslroot || `/etc/letsencrypt/live`,
     certfolder = `${root}/${appName}`,
@@ -21,6 +18,7 @@ try {
         console.log(`HTTPS Express server listening on port 443`)
     })
 
+    var app2 = require('express')()
     app2.use('*', (req,res) => res.redirect('https://'+req.hostname+req.url))
     http.createServer(app2).listen(80, () => {
         console.log(`HTTP Express server listening on port 80`)
@@ -34,5 +32,3 @@ try {
         console.log(`HTTP Express server listening on port ${app.get('port')}`)
     })
 }
-
-process.title = 'nodejs - http listener'

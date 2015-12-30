@@ -1,8 +1,5 @@
 {
     "serverRender": false,
-    "apis": {
-
-    },
-    "nodeCluster": false,
+    "apis": {},
     "appName": "fillmein.com"
 }

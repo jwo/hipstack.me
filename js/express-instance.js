@@ -17,8 +17,10 @@ app.use(
         filter: (req,res) => true,
         level: 9
     }),
-    express.static(__dirname+'/dist', {maxAge: 1000*60*60*12})
+    express.static(__dirname+'/../dist', {maxAge: 1000*60*60*12})
 )
+
+console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++', __dirname+'/../dist')
 
 // { test: 'name', test2: 'name2' } --> '?test=name&test2=name2'
 const querify = (queryParamsObject) => {
