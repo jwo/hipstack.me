@@ -7,7 +7,17 @@ require("babel-polyfill")
 require("isomorphic-fetch")
 
 // universal utils: cache, fetch, store, resource, fetcher, router, vdom, etc
-import * as u from 'universal-utils'
+// import * as u from 'universal-utils'
+
+// the following line, if uncommented, will enable browserify to push
+// a changed fn to you, with source maps (reverse map from compiled
+// code line # to source code line #), in realtime via websockets
+if (module.hot) {
+    module.hot.accept()
+    module.hot.dispose(() => {
+        app()
+    })
+}
 
 // import {React, Component, DOM, Resolver, resolve} from 'react-resolver'
 import DOM from 'react-dom'
