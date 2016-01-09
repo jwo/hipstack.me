@@ -8,7 +8,7 @@ resource "aws_instance" "app" {
 
     inline = [
         "cd /srv/otto-app",
-        "sudo run npm build",
+        "sudo run npm postinstall",
         "cd ..",
         "sudo service nginx stop",
         "rm -rf letsencrypt",
