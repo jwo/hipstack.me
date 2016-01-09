@@ -13,7 +13,7 @@ resource "aws_instance" "app" {
         "sudo service nginx stop",
         "rm -rf letsencrypt",
         "git clone https://github.com/letsencrypt/letsencrypt",
-        "sudo ./letsencrypt/letsencrypt-auto certonly --text --domain rentvillas.com --agree-tos --keep-until-expiring --renew-by-default --email matthiasak@gmail.com &",
+        "sudo ./letsencrypt/letsencrypt-auto certonly --text --domain MYWEBSITEDOMAIN --agree-tos --keep-until-expiring --renew-by-default --email MYEMAIL &",
         "while ! pidof nginx >> /dev/null; do sleep 2; done;",
         "sudo kill $(cat /run/nginx.pid)",
         "wait",
