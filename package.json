@@ -11,6 +11,9 @@
     ]
   },
   "babel": {
+    "plugins": [
+      "./plugins/babel-autoinstall-plugin.js"
+    ],
     "presets": [
       "es2015",
       "stage-0",
@@ -27,12 +30,12 @@
   },
   "scripts": {
     "css": "node-sass styles/style.scss | postcss --use autoprefixer --autoprefixer.browsers '> 50%' --use csswring -o ./dist/style.css",
-    "watch:js-server": "sane 'npm run restart' --wait=15 --glob='build/**/*.js'",
+    "watch:js": "sane 'npm run restart' --wait=15 --glob='build/**/*.js'",
     "watch:styles": "sane 'npm-run-all css' --glob='styles/**/*.scss' --glob='styles/**/*.css'",
     "transpile": "babel js --watch --out-dir ./build",
     "transpile-once": "babel js --out-dir ./build",
-    "js": "watchify -e build/app.js -p browserify-hmr -t installify -v -d --delay 16 -o 'exorcist dist/app.js.map > dist/app.js'",
-    "js-once": "browserify -e build/app.js -t installify -v -d  | exorcist dist/app.js.map > dist/app.js",
+    "js": "watchify -e build/app.js -v -d --delay 16 -o 'exorcist dist/app.js.map > dist/app.js'",
+    "js-once": "browserify -e build/app.js -v -d  | exorcist dist/app.js.map > dist/app.js",
     "server": "pm2 kill; pm2 start app.js -i -4;",
     "restart": "pm2 restart all",
     "start": "npm-run-all --parallel transpile js watch:styles server",
@@ -57,39 +60,28 @@
   },
   "dependencies": {
     "autoprefixer": "^6.2.2",
-    "babel-cli": "^6.2.0",
-    "babel-core": "^6.3.26",
+    "babel-cli": "^6.4",
+    "babel-core": "^6.4",
     "babel-polyfill": "^6.2.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.1.18",
-    "body-parser": "^1.14.1",
-    "bower": "^1.4.1",
-    "browserify": "^12.0.1",
-    "browserify-hmr": "^0.3.1",
-    "compression": "^1.5.2",
+    "bower": "^1.7.2",
+    "browserify": "^13.0.0",
     "csswring": "^4.0.0",
-    "csurf": "^1.8.3",
     "envify": "^3.4.0",
     "exorcist": "^0.4.0",
-    "express": "^4.12.3",
-    "express-session": "^1.11.3",
-    "installify": "^1.0.2",
-    "isomorphic-fetch": "^2.2.0",
-    "method-override": "^2.3.3",
     "node-sass": "^3.4.2",
     "npm-run-all": "^1.2.12",
     "pm2": "^1.0.0",
-    "postcss-cli": "^2.1.0",
-    "request": "^2.55.0",
+    "postcss-cli": "^2.3.3",
     "sane": "^1.3.0",
     "universal-utils": "^0.1.31",
-    "watchify": "^3.6.1",
-    "webworkify": "^1.0.2"
+    "watchify": "^3.7"
   },
   "devDependencies": {
     "ava": "^0.9.1",
-    "esdoc": "^0.4.0",
+    "esdoc": "^0.4.3",
     "esdoc-es7-plugin": "^0.0.3",
     "nsp": "^2.0.0",
     "surge": "^0.17.2"

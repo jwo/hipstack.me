@@ -1,28 +1,40 @@
-var app = require('./express-instance'),
-    http = require('http'),
-    // http2 = require('http2')
-    https = require('https'),
-    config = require('../config.json'),
-    appName = config.appName || '',
+import app from './express-instance'
+import http from 'http'
+import https from 'https'
+import config from '../config.json'
+import fs from 'fs'
+import express from 'express'
+const range = (min,max) =>
+        min + Math.round(Math.random() * (max-min))
+
+const appName = config.appName || '',
     root = config.sslroot || `/etc/letsencrypt/live`,
     certfolder = `${root}/${appName}`,
     keyname = config.keyname || 'privkey.pem',
-    certname = config.certname || 'fullchain.pem',
-    fs = require('fs')
+    certname = config.certname || 'fullchain.pem'
 
 try {
-    https.createServer({
+    if(!config.ssl_enabled) throw 'SSL is turned off'
+
+    var ssl = 443,// || range(3000,6000),
+        notssl = app.get('port')// || range(3000,6000)
+
+    var ssl_app = https.createServer({
         key: fs.readFileSync(`${certfolder}/${keyname}`),
         cert: fs.readFileSync(`${certfolder}/${certname}`)
-    }, app).listen(443, () => {
-        console.log(`HTTPS Express server listening on port 443`)
-    })
+    }, app)
 
-    var app2 = require('express')()
-    app2.use('*', (req,res) => res.redirect('https://'+req.hostname+req.url))
-    http.createServer(app2).listen(80, () => {
-        console.log(`HTTP Express server listening on port 80`)
-    })
+    var instance = express()
+    instance.use('*', (req,res) => res.redirect('https://'+req.hostname+req.url))
+    var http_app = http.createServer(instance)
+
+    if (typeof(PhusionPassenger) !== 'undefined') {
+        http_app.listen('passenger')
+        ssl_app.listen(ssl)
+    } else {
+        http_app.listen(notssl)
+        ssl_app.listen(ssl)
+    }
 } catch(e) {
     console.log('--------------------------------------------')
     console.log(e)
@@ -32,3 +44,4 @@ try {
         console.log(`HTTP Express server listening on port ${app.get('port')}`)
     })
 }
+
