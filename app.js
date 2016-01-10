@@ -1,1 +1,1 @@
-require('./build/server.js')
+import s from './build/server.js'
