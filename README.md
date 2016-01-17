@@ -79,6 +79,10 @@ This is a scaffolding project that includes boilerplate code for:
     npm run docs:surge
     ```
 
+8. Need shields?
+
+    http://shields.io/
+
 #### License
 
 MIT.
