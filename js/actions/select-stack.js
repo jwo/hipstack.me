@@ -17,4 +17,4 @@ const modifiers = ["ImmutableJS", "ES6", "Redux", "FalcorJS", "Server Side Gener
 const buildTool = ["Gulp","Grunt","Ember-CLI","Yeoman","Lineman","bespoke build pipeline"];
 const mobile = ["Ionic","Titanium","React-Native","Pure Android","Native iOS"];
 const api = ["HAPI","NodeJS","Rails-API","Elixir/Phoenix","GO"];
-const deployedTo = ["Heroku","Amazon EC2","Amazon NoServer","Digital Ocean","GitHub Pages","Surge"];
+const deployedTo = ["Heroku","Amazon S3","Amazon Beanstalk", "Amazon Lambda","Digital Ocean","GitHub Pages","Surge"];
