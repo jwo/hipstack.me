@@ -1,22 +1,6 @@
 @import "../bower_components/normalize-scss/_normalize.scss";
 @import "../bower_components/typeplate-starter-kit/scss/_typeplate.scss";
-
-p+p {
-    text-indent: 0;
-    margin-top: 0;
-}
-
-p {
-    max-width: 80ch;
-    margin-left: 0;
-    margin-right: auto;
-}
-
-ul, ol {
-    max-width: 80ch;
-    margin-left: 0;
-    margin-right: auto;
-}
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,700);
 
 /**
  * BOX-SIZING
@@ -31,59 +15,6 @@ ul, ol {
     transition-timing-function: ease;
 }
 
-/**
- * GRIDS
- */
-
-.grid {
-    display: block;
-    text-align: justify;
-    font-size: 0;
-    position: relative;
-
-    > * {
-        display: inline-block;
-        width: 100%;
-        font-size: 1rem;
-        text-align: left;
-    }
-
-    &:after {
-        display: table;
-        width: 100%;
-    }
-}
-
-@mixin grid_r($col, $width, $padding: 0) {
-    @media screen and (min-width: #{$width}px) {
-        .grid-#{$col}-#{$width} {
-            & > * {
-                width: #{100/$col}%;
-                padding: #{$padding}px;
-            }
-        }
-    }
-}
-
-@mixin grid($col, $padding: 0) {
-    .grid-#{$col} {
-        & > * {
-            width: #{100/$col}%;
-            padding: #{$padding}px;
-        }
-    }
-}
-
-@include grid(2);
-@include grid(4);
-@include grid(8);
-@include grid_r(2,400);
-@include grid_r(2,800);
-@include grid_r(4,400);
-@include grid_r(4,800);
-@include grid_r(8,800);
-@include grid_r(8,1024);
-@include grid_r(8,1280);
 
 /**
  * GENERAL
@@ -93,7 +24,8 @@ img {
     max-width: 100%;
 }
 body {
-    font-family: 'San Francisco', 'Helvetica', 'Trebuchet MS', Arial, sans-serif;
+    font-family: 'Roboto', 'San Francisco', 'Helvetica', 'Trebuchet MS', Arial, sans-serif;
+    font-weight: 100;
 }
 
 /**
@@ -127,3 +59,67 @@ body {
 /**
  * App code
  */
+
+ @mixin transparent($color, $alpha) {
+   $rgba: rgba($color, $alpha);
+   $ie-hex-str: ie-hex-str($rgba);
+   background-color: transparent;
+   background-color: $rgba;
+   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str},endColorstr=#{$ie-hex-str});
+   zoom: 1;
+}
+
+.container {
+
+}
+
+.stack-selection {
+}
+.app {
+
+
+}
+
+html {
+  background: url("../images/library.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.stack-selection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+
+  .the-stack {
+    flex: 1;
+
+    @include transparent(#000000, 0.7);
+    text-align: center;
+    line-height: 1.4;
+    color: #ffffff;
+    padding: 0.2rem;
+    font-size: 3rem;
+    padding: 2rem;
+  }
+  button {
+    flex: 1;
+    display: block;
+
+    background-color: #8E44AD;
+    padding: 2rem;
+    border: 0;
+    border-radius: 5px;
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 10rem;
+  }
+
+  .love {
+    flex: 1;
+    @include transparent(#000000, 0.9);
+    color: #ffffff;
+  }
+}

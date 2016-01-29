@@ -23,10 +23,17 @@ import fetch from "isomorphic-fetch"
 import DOM from 'react-dom'
 import React, {Component} from 'react'
 
+import { Provider } from 'react-redux';
+import configureStore from './store/configure-store';
+import AppContainer from './containers/app-container';
+const store = configureStore()
+
+
 function app() {
-    // start app
-    // new Router()
-    DOM.render(<p>test 2</p>, document.querySelector('.container'))
+    DOM.render(
+      <Provider store={store}>
+        <AppContainer></AppContainer>
+      </Provider>, document.querySelector('.container'))
 }
 
 app()
