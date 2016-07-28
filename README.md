@@ -9,6 +9,13 @@ Is this a joke
 
 I don't know. IS IT?!
 
+How to Publish
+======
+
+```
+npm run publish:gh-pages
+```
+
 LICENSE
 ======
 
