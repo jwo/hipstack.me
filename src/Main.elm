@@ -107,13 +107,20 @@ update msg model =
             ( model, Random.generate NewStack (Random.int 0 5) )
 
         NewStack newFun ->
-            ( { model
-                | stackSelected = True
-                , selectedStack = (randomHipStack newFun)
-                , selectionButtonText = "Select You (another) Hipstack!"
-              }
-            , Cmd.none
-            )
+            let
+                newStack =
+                    randomHipStack newFun
+            in
+                if model.selectedStack == newStack then
+                    ( model, Random.generate NewStack (Random.int 0 5) )
+                else
+                    ( { model
+                        | stackSelected = True
+                        , selectedStack = (randomHipStack newFun)
+                        , selectionButtonText = "Select You (another) Hipstack!"
+                      }
+                    , Cmd.none
+                    )
 
 
 
@@ -135,7 +142,12 @@ view model =
             [ div [ class (theStackClass model) ] [ text model.selectedStack ]
             , button [ onClick SelectStack ] [ text model.selectionButtonText ]
             ]
-        , div [ class "love" ] [ text "This app is built with love by @jwo from Sugar Land, TX with Elm and Webpack, deployed to GitHub Pages" ]
+        , div [ class "love" ]
+            [ text "This app is built with love by "
+            , a [ href "http://twitter.com/jwo" ] [ text "JWo" ]
+            , text " from Sugar Land, TX with Elm and Webpack, deployed to GitHub Pages  "
+            , a [ href "https://github.com/jwo/hipstack.me" ] [ text "GitHub" ]
+            ]
         ]
 
 
