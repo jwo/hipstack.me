@@ -1,7 +1,7 @@
 ### Hipstack.me
 
-Built with love by @jwo from Sugar Land, TX with React / Redux,
-pipelined with universal-js-boilerplate, no data-storage required, deployed to
+Built with love by @jwo from Sugar Land, TX with <strike>React / Redux,
+pipelined with universal-js-boilerplate</strike> Elm, no data-storage required, deployed to
 GitHub Pages
 
 Is this a joke
