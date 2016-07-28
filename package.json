@@ -8,7 +8,7 @@
     "build": "webpack",
     "watch": "webpack --watch",
     "dev": "webpack-dev-server --port 3000",
-    "publish:gh-pages": "git add . && git commit -am 'cleaning up any staged and uncomitted changes'; git checkout master; npm-run-all postinstall && git subtree split --prefix dist -b autobuilder && git checkout autobuilder && cp dist/app.js . && cp dist/style.css . && git add app.js style.css && git commit -am 'cleaning and pushing' && git push origin autobuilder:gh-pages --force; git checkout master; git branch -Dq autobuilder; echo 'done';"
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "css-loader": "^0.23.1",
+    "gh-pages": "^0.11.0",
     "node-sass": "^3.8.0",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1"

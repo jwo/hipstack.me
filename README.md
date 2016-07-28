@@ -9,12 +9,32 @@ Is this a joke
 
 I don't know. IS IT?!
 
+How to Run Locally
+======
+
+After you clone, and run `npm install`, you should:
+
+```
+npm run dev
+```
+
+You'll probably have to install elm too. Probably.
+
+
 How to Publish
 ======
 
 ```
-npm run publish:gh-pages
+npm run build
+cp src/CNAME dist
+npm run deploy
 ```
+
+TODOs
+=====
+
+1. Figure out how to get `src/CNAME` into `dist` on build (embarassing)
+
 
 LICENSE
 ======
