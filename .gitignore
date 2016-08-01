@@ -17,3 +17,4 @@ build/
 bower_components
 .otto/
 letsencrypt/
+dist/images
